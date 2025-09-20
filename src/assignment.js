@@ -15,7 +15,11 @@
 export function sumOfNumbersTo(destination) {
     console.log(destination)
     // write your code here
-    return 0
+    let add = 0
+    for (let i = 1; i <= destination; i++) {
+        add += i
+    };
+    return add
 }
 
 /**
@@ -29,11 +33,24 @@ export function sumOfNumbersTo(destination) {
 export function evenNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfEvenNumbers = []
 
     // write your code here
+
+    for (let i = 0; i <= destination; i++) {
+        // Print only even number inside the array
+        if (i % 2 === 0) {
+            arrayOfEvenNumbers.push(i)
+        }
+    }
+
+    // Handle addition of array element
+    sum = arrayOfEvenNumbers.reduce((accumulator, initialValue) => accumulator + initialValue, 0)
+
+    // Handle count of array element
+    count = arrayOfEvenNumbers.length
 
     return {
         count,
@@ -61,6 +78,12 @@ export function celsiusToFahrenheit(arrayOfNumbers) {
 
     // write your code here
 
+    arrayOfNumbers.forEach((celcius) => {
+        let fahrenheit = 0
+        fahrenheit = Math.trunc((celcius * 9 / 5) + 32)
+        result.push(fahrenheit)
+    })
+
     return result
 }
 
@@ -76,11 +99,20 @@ export function celsiusToFahrenheit(arrayOfNumbers) {
 export function oddNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfOddNumbers = []
 
     // write your code here
+
+    for (let i = 0; i <= destination; i++) {
+        if (i % 2 !== 0) {
+            sum += i
+            arrayOfOddNumbers.push(i)
+        }
+    }
+
+    count = arrayOfOddNumbers.length
 
     return {
         count,
@@ -101,11 +133,20 @@ export function oddNumbersWithin(destination) {
  */
 export function findMultiples(arrayOfNumbers, factor) {
     console.log(arrayOfNumbers, factor)
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfMultiples = []
 
     // write your code here
+
+    arrayOfNumbers.forEach((num) => {
+        if (num % factor === 0) {
+            arrayOfMultiples.push(num)
+            sum += num
+        }
+    })
+
+    count = arrayOfMultiples.length
 
     return {
         count,
@@ -130,6 +171,19 @@ export function calculateFactorials(arrayOfNumbers) {
     const result = []
 
     // write your code here
+    arrayOfNumbers.forEach((num) => {
+        if (num < 0) {
+            result.push(0)
+        }
+        else {
+            let factor = 1
+            for (let i = 1; i <= num; i++) {
+                factor *= i
+            }
+
+            result.push(factor)
+        }
+    })
 
     return result
 }
@@ -146,11 +200,37 @@ export function calculateFactorials(arrayOfNumbers) {
  */
 export function findPrimeNumbers(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfPrimes = []
 
     // write your code here
+
+    // Condition to check a num is prime
+    function isPrime(num) {
+        if (num < 2)
+            return false
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false
+            }
+        }
+        return true
+    }
+
+    // Use the prime function in array of num and push
+
+    arrayOfNumbers.forEach((value) => {
+        if (isPrime(value)) {
+            arrayOfPrimes.push(value)
+        }
+    })
+
+    // sum of all prime
+    sum = arrayOfPrimes.reduce((acc, currentValue) => acc + currentValue, 0)
+
+    // count the array of prime
+    count = arrayOfPrimes.length
 
     return {
         count,
@@ -172,6 +252,10 @@ export function doubleTheValues(arrayOfNumbers) {
     const result = []
 
     // write your code here
+    arrayOfNumbers.forEach((value) => {
+        const double = value * 2
+        result.push(double)
+    })
 
     return result
 }
