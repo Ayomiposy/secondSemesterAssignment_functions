@@ -260,7 +260,7 @@ export function doubleTheValues(arrayOfNumbers) {
     return result
 }
 
-// regrade trigger
+// regrade trigger assignment.js
 
 // ========================
 // DO NOT REMOVE THE EXPORT KEYWORDS
