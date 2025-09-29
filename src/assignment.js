@@ -39,24 +39,15 @@ export function evenNumbersWithin(destination) {
 
     // write your code here
 
-    for (let i = 0; i <= destination; i++) {
-        // Print only even number inside the array
+    for (let i = 1; i <= destination; i++) {
         if (i % 2 === 0) {
             arrayOfEvenNumbers.push(i)
+            sum += i
+            count++
         }
     }
 
-    // Handle addition of array element
-    sum = arrayOfEvenNumbers.reduce((accumulator, initialValue) => accumulator + initialValue, 0)
-
-    // Handle count of array element
-    count = arrayOfEvenNumbers.length
-
-    return {
-        count,
-        sum,
-        arrayOfEvenNumbers,
-    }
+    return { count, sum, arrayOfEvenNumbers }
 }
 
 /**
