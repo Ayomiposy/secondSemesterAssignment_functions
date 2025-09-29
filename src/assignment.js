@@ -31,23 +31,31 @@ export function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 export function evenNumbersWithin(destination) {
-    // console.log(destination)
+    console.log(destination)
     // get the number from 0 to destination
     let sum = 0
     let count = 0
     const arrayOfEvenNumbers = []
-
     // write your code here
 
-    for (let i = 1; i <= destination; i++) {
+    for (let i = 0; i <= destination; i++) {
+        // Print only even number inside the array
         if (i % 2 === 0) {
             arrayOfEvenNumbers.push(i)
-            sum += i
-            count++
         }
     }
 
-    return { count, sum, arrayOfEvenNumbers }
+    // Handle addition of array element
+    sum = arrayOfEvenNumbers.reduce((accumulator, initialValue) => accumulator + initialValue, 0)
+
+    // Handle count of array element
+    count = arrayOfEvenNumbers.length
+
+    return {
+        count,
+        sum,
+        arrayOfEvenNumbers,
+    }
 }
 
 /**
@@ -250,8 +258,6 @@ export function doubleTheValues(arrayOfNumbers) {
 
     return result
 }
-
-// regrade trigger assignment.js
 
 // ========================
 // DO NOT REMOVE THE EXPORT KEYWORDS
